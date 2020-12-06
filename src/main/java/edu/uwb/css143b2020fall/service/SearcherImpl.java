@@ -11,6 +11,7 @@ public class SearcherImpl implements Searcher {
     public List<Integer> search(String keyPhrase, Map<String, List<List<Integer>>> index) {
         List<Integer> result = new ArrayList<>();
         // add your code
+
         return result;
     }
 }
