@@ -67,63 +67,8 @@ public class IndexerImpl implements Indexer {
 
         }
 
-        //System.out.println(search("hello", indexes));
     }
 
-    public static List<Integer> search(String keyPhrase, Map<String, List<List<Integer>>> index) {
-        List<Integer> result = new ArrayList<>();
-        // add your code
-        List<List<Integer>> value = new ArrayList<>();
-        List<Integer> doc_val = new ArrayList<>();
-        String[] input = keyPhrase.trim().split("\\s+");
-        //check if all words in key phrase are present in hashMap index
-
-        for(int i=0; i < input.length; i++){
-            if (!index.containsKey(input[i])){
-                System.out.println ("phase is not present");
-            }
-        }
-
-
-        value = index.get(input[0]);
-        List<Integer> doc_temp = new ArrayList<>(value.size());
-        for (int i=0; i< value.size(); i++){
-            if(!(value.get(doc_temp.get(i)).isEmpty())){
-                doc_val.add(i);
-            }
-        }
-        for (int j=0; j<doc_val.size();j++){
-
-            for (int k=1; k<input.length; k++){
-                if(index.get(input[k]).get(doc_temp.get(j)).isEmpty()){
-                    doc_val.remove(j);
-                }
-            }
-
-        }
-        /*
-        for(int i = 0; i < input.length; i++){
-            //int doc_val;
-            int loc_val;
-            if (index.containsKey(input[i])){
-                //value = index.get(input[i]);
-                //List<Integer> doc_temp = new ArrayList<>(value.size());
-                for(int j = 0; j < value.size(); j++){
-                    //if(!(value.get(doc_temp.get(j)).isEmpty())){
-                        doc_val = j;
-                        for(int k = 0; k < value.get(doc_temp.get(j)).size(); k++ ){
-                            loc_val = value.get(doc_temp.get(j)).get(k);
-                        }
-                    }
-                }
-            }else{
-                return result;
-            }
-
-        }*/
-
-        return result;
-    }
 
     public Map<String, List<List<Integer>>> index(List<String> docs) {
 
